@@ -1,7 +1,7 @@
 import {WEATHER_REPORT} from '../types'
 
 const initialState = {
-    users:[]
+    weathers:[]
 }
 
 export default function(state = initialState, action){
@@ -11,7 +11,7 @@ export default function(state = initialState, action){
         case WEATHER_REPORT:
         return {
             ...state,
-            users:action.payload,
+            weathers:action.payload,
            
 
         }

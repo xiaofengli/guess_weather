@@ -13,9 +13,9 @@ import "./Results.css"
     render() {
        
        
-        const {users} = this.props.users
-        console.log(users.length)
-        let failures = users.filter(u=> u.answer === false)
+        const {weathers} = this.props.weathers
+        console.log(weathers.length)
+        let failures = weathers.filter(u=> u.answer === false)
         console.log('debugging failure size: ' + failures.length)
 
         let result =  failures>= 3 ? "You loose" : "You win"
@@ -24,7 +24,7 @@ import "./Results.css"
                 <br/>
                 
                 { 
-                  users.length >=5
+                  weathers.length >=5
                   ?
                   // <Alert severity="info">result</Alert>
                   <p style={{color: 'blue'}}>Popup does not work yet<br/> 
@@ -32,7 +32,7 @@ import "./Results.css"
                   </p>
                 
  
-                  : users.map(u => 
+                  : weathers.map(u => 
                       <li>
                       <React.Fragment key={u.cur_temp}>  
                         <h6 style={{color: "green"}}>{u.temp}</h6> <br/>
@@ -47,6 +47,6 @@ import "./Results.css"
     }
 }
 
-const mapStateToProps  = (state) => ({users:state.users})
+const mapStateToProps  = (state) => ({weathers:state.weathers})
 
 export default connect(mapStateToProps, {getWeather})(Results)
